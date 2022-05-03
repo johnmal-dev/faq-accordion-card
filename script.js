@@ -1,8 +1,6 @@
 let acc = document.getElementsByClassName('accordion');
 let i;
 
-console.log(acc)
-
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener('click', onClick);
 }
@@ -12,7 +10,15 @@ function onClick() {
   let panel = this.nextElementSibling;
   if (panel.style.maxHeight) {
     panel.style.maxHeight = null;
+    this.classList.remove('open');
   } else {
+    Array.from(acc).forEach(e => {
+      console.log('test')
+      e.nextElementSibling.style.maxHeight = null;
+      e.classList.remove('open');
+    });
+    this.classList.add('open');
     panel.style.maxHeight = panel.scrollHeight + 'px'
   }
+  // close open tabs
 }

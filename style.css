@@ -9,7 +9,9 @@
 body {
   font-size: 12px;
   font-family: 'Kumbh Sans', sans-serif;
-  background: #af67e9;
+  color: #1d1e35;
+  background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background: linear-gradient(#af67e9, #6565e7);
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -25,17 +27,51 @@ body {
 .card {
   background: white;
   width: 330px;
-  padding: 1.5rem;
+  min-width: 330px;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
+  border-radius: 25px;
+}
+.card .img-container {
+  height: 6.8rem;
+}
+.card .img-container img {
+  position: relative;
+  -webkit-transform: translateY(-257px) scale(0.85);
+          transform: translateY(-257px) scale(0.85);
+}
+.card .img-container::before {
+  content: url(/images/bg-pattern-mobile.svg);
+  display: block;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  -webkit-transform: translate(20px, -22px);
+          transform: translate(20px, -22px);
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .accordion-wrapper .accordion {
+  font-size: .84rem;
+  color: #4a4b5e;
   cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
   padding: 1.1rem 0;
 }
-.accordion-wrapper .accordion:active {
+.accordion-wrapper .accordion::before {
+  content: url(/images/icon-arrow-down.svg);
+  position: absolute;
+  -webkit-transform: translateX(273px);
+          transform: translateX(273px);
+}
+.accordion-wrapper .accordion.open {
   font-weight: 700;
-  background-color: blue;
 }
 .accordion-wrapper .panel {
   border-bottom: 1px solid #e7e7e9;
@@ -45,5 +81,6 @@ body {
   transition: max-height 0.2s ease-out;
 }
 .accordion-wrapper .panel p {
+  color: #787887;
   padding-bottom: 1rem;
 }
