@@ -9,15 +9,41 @@
 body {
   font-size: 12px;
   font-family: 'Kumbh Sans', sans-serif;
+  background: #af67e9;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card {
+  background: white;
+  width: 330px;
+  padding: 1.5rem;
 }
 .accordion-wrapper .accordion {
   cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
+  padding: 1.1rem 0;
+}
+.accordion-wrapper .accordion:active {
+  font-weight: 700;
+  background-color: blue;
 }
 .accordion-wrapper .panel {
+  border-bottom: 1px solid #e7e7e9;
   max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height 0.2s ease-out;
   transition: max-height 0.2s ease-out;
+}
+.accordion-wrapper .panel p {
+  padding-bottom: 1rem;
 }
