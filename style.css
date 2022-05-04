@@ -25,9 +25,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .card {
-  position: absolute;
+  position: relative;
   background: white;
   width: 330px;
   min-width: 330px;
@@ -54,62 +58,80 @@ body {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 0;
-    padding-top: 4rem;
-    padding-right: 6rem;
-    padding-bottom: 5rem;
   }
 }
 .card .img-container {
+  z-index: 1;
   height: 6.8rem;
 }
 @media (min-width: 1000px) {
   .card .img-container {
-    width: 437px;
+    position: absolute;
     height: 100%;
     overflow: hidden;
   }
 }
-.card .img-container #desktop-img {
-  position: relative;
-  -webkit-transform: translateY(-257px) scale(0.85);
-          transform: translateY(-257px) scale(0.85);
-}
-@media (min-width: 1000px) {
-  .card .img-container #desktop-img {
-    display: none;
-  }
-}
 .card .img-container #mobile-img {
-  display: none;
+  -webkit-transform: translateY(-150px) scale(0.85);
+          transform: translateY(-150px) scale(0.85);
 }
 @media (min-width: 1000px) {
   .card .img-container #mobile-img {
+    display: none;
+  }
+}
+.card .img-container #desktop-img {
+  display: none;
+}
+@media (min-width: 1000px) {
+  .card .img-container #desktop-img {
     display: block;
-    -webkit-transform: translateX(-80px);
-            transform: translateX(-80px);
+    -webkit-transform: translate(-80px, 70px);
+            transform: translate(-80px, 70px);
+    position: relative;
   }
 }
 .card .img-container::before {
   content: url(/images/bg-pattern-mobile.svg);
   display: block;
+  overflow: hidden;
   top: 0;
-  height: 100%;
-  width: 100%;
+  width: 80%;
   z-index: 1;
-  position: relative;
-  -webkit-transform: translate(20px, -22px);
-          transform: translate(20px, -22px);
+  position: absolute;
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
 }
 @media (min-width: 1000px) {
   .card .img-container::before {
     display: none;
   }
 }
+.card .img-container::after {
+  content: url(/images/bg-pattern-desktop.svg);
+  display: none;
+}
+@media (min-width: 1000px) {
+  .card .img-container::after {
+    display: block;
+    top: -300px;
+    left: -570px;
+    z-index: -1;
+    position: absolute;
+  }
+}
 @media (min-width: 1000px) {
   .card .accordion-wrapper {
+    position: relative;
     margin-left: auto;
     width: 350px;
+    margin-top: 4rem;
+    margin-right: 6rem;
+    margin-bottom: 5rem;
   }
 }
 .card .accordion-wrapper .accordion {
@@ -158,8 +180,14 @@ h1 {
   }
 }
 #box-img {
+  display: none;
   position: absolute;
   z-index: 2;
   top: 200px;
   left: -93px;
+}
+@media (min-width: 1000px) {
+  #box-img {
+    display: block;
+  }
 }
