@@ -142,6 +142,9 @@ body {
   transition: .4s;
   padding: 1.1rem 0;
 }
+.card .accordion-wrapper .accordion:hover {
+  color: #1d1e35;
+}
 .card .accordion-wrapper .accordion::before {
   content: url(/images/icon-arrow-down.svg);
   position: absolute;
@@ -156,6 +159,18 @@ body {
 }
 .card .accordion-wrapper .accordion.open {
   font-weight: 700;
+}
+.card .accordion-wrapper .accordion.open::before {
+  content: url(/images/icon-arrow-down.svg);
+  position: absolute;
+  -webkit-transform: translateX(273px) rotate(180deg);
+          transform: translateX(273px) rotate(180deg);
+}
+@media (min-width: 1000px) {
+  .card .accordion-wrapper .accordion.open::before {
+    -webkit-transform: translateX(325px) rotate(180deg);
+            transform: translateX(325px) rotate(180deg);
+  }
 }
 .card .accordion-wrapper .panel {
   border-bottom: 1px solid #e7e7e9;
